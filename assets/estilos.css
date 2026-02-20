@@ -1,0 +1,134 @@
+/* RESET */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    background: linear-gradient(
+        45deg,
+        rgb(168, 41, 145),
+        pink,
+        rgb(227, 67, 168),
+        rgb(225, 100, 179),
+        rgba(0, 198, 255, 0.8)
+    );
+
+    background-size: 400% 400%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    animation: moverGradient 12s ease-in-out infinite;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* CONTENEDOR */
+.contenedor{
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    padding: clamp(20px, 5vw, 40px);
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.content-title{
+    margin-bottom: 20px;
+}
+
+/* BOTONES */
+.content-buttons{
+    display: flex;
+    flex-direction: column; /* mobile first */
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* LINKS */
+.content-buttons a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 60px;
+
+    text-decoration: none;
+    font-size: clamp(18px, 4vw, 26px);
+    font-weight: bold;
+    color: black;
+
+    border-radius: 15px;
+
+    background: linear-gradient(
+        135deg,
+        rgb(168, 41, 145),
+        pink,
+        rgb(227, 67, 168),
+        rgb(225, 100, 179)
+    );
+
+    animation: gradientButtons 12s ease-in-out infinite;
+    background-size: 300% 300%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* HOVER */
+.content-buttons a:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* ANIMACIÓN GRADIENT */
+@keyframes moverGradient{
+    0%{ background-position: 0% 50%; }
+    50%{ background-position: 100% 50%; }
+    100%{ background-position: 0% 50%; }
+}
+
+@keyframes gradientButtons{
+    0%{ background-position: 0% 50%; }
+    50%{ background-position: 100% 50%; }
+    100%{ background-position: 0% 50%; }
+}
+
+/* TABLETS */
+@media (min-width: 600px){
+    .contenedor{
+        max-width: 500px;
+    }
+
+    .content-buttons{
+        flex-direction: row;
+    }
+
+    .content-buttons a{
+        flex: 1;
+        height: 65px;
+    }
+}
+
+/* PANTALLAS GRANDES */
+@media (min-width: 1024px){
+    .contenedor{
+        max-width: 600px;
+        padding: 50px;
+    }
+
+    .content-buttons a{
+        height: 70px;
+        font-size: 24px;
+    }
+}
